@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.API", "src\CoreDbDemo.API\CoreDbDemo.API.csproj", "{8429529F-224B-4001-BE64-AB17AF7BD8C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.Data", "src\CoreDbDemo.Data\CoreDbDemo.Data.csproj", "{590050CD-5258-4148-830E-A8F769BB8A08}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.Domain", "src\CoreDbDemo.Domain\CoreDbDemo.Domain.csproj", "{C58AB4E5-EED0-4C9F-8089-7D6A1760F546}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.Common", "src\CoreDbDemo.Common\CoreDbDemo.Common.csproj", "{3AA2F397-2B89-4700-B79E-E1A2643BA185}"
@@ -14,6 +12,15 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.AngularJs", "src\CoreDbDemo.AngularJs\CoreDbDemo.AngularJs.csproj", "{30C722C3-8231-4D30-876B-D966F536B5EC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.Aurelia", "src\CoreDbDemo.Aurelia\CoreDbDemo.Aurelia.csproj", "{152E0503-1567-4DFF-88E8-199B4CD3948E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{953E6C81-9181-4163-963C-CD7000AC4890}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		global.json = global.json
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreDbDemo.Data", "src\CoreDbDemo.Data\CoreDbDemo.Data.csproj", "{76663ED7-415C-4CC0-AD9F-6E87281B0571}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +32,6 @@ Global
 		{8429529F-224B-4001-BE64-AB17AF7BD8C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8429529F-224B-4001-BE64-AB17AF7BD8C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8429529F-224B-4001-BE64-AB17AF7BD8C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{590050CD-5258-4148-830E-A8F769BB8A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{590050CD-5258-4148-830E-A8F769BB8A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{590050CD-5258-4148-830E-A8F769BB8A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{590050CD-5258-4148-830E-A8F769BB8A08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C58AB4E5-EED0-4C9F-8089-7D6A1760F546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C58AB4E5-EED0-4C9F-8089-7D6A1760F546}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C58AB4E5-EED0-4C9F-8089-7D6A1760F546}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +48,10 @@ Global
 		{152E0503-1567-4DFF-88E8-199B4CD3948E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{152E0503-1567-4DFF-88E8-199B4CD3948E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{152E0503-1567-4DFF-88E8-199B4CD3948E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76663ED7-415C-4CC0-AD9F-6E87281B0571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76663ED7-415C-4CC0-AD9F-6E87281B0571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76663ED7-415C-4CC0-AD9F-6E87281B0571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76663ED7-415C-4CC0-AD9F-6E87281B0571}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
