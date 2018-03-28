@@ -20,7 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreDbDemo.Data", "src\CoreDbDemo.Data\CoreDbDemo.Data.csproj", "{76663ED7-415C-4CC0-AD9F-6E87281B0571}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.Data", "src\CoreDbDemo.Data\CoreDbDemo.Data.csproj", "{76663ED7-415C-4CC0-AD9F-6E87281B0571}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C58AB4E5-EED0-4C9F-8089-7D6A1760F546} = {C58AB4E5-EED0-4C9F-8089-7D6A1760F546}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
