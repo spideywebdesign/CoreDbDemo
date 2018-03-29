@@ -24,6 +24,8 @@ namespace CoreDbDemo.Data.Context
         {
             StaffMemberConfiguration.Configure(modelBuilder);
             RetailerConfiguration.Configure(modelBuilder);
+            RequestConfiguration.Configure(modelBuilder);
+            SystemConfiguration.Configure(modelBuilder);
         }
     }
 }

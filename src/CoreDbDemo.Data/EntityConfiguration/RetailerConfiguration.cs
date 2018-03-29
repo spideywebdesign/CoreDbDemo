@@ -23,7 +23,8 @@ namespace CoreDbDemo.Data.EntityConfiguration
                     x.HasMany(y => y.StaffMembers)
                         .WithOne(y => y.Retailer)
                         // if a retailer is deleted, then dependant staff members can't exist without a parent retailer.
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
 
                     // Base Entity Common Properties
@@ -36,6 +37,25 @@ namespace CoreDbDemo.Data.EntityConfiguration
 
                     x.Property(y => y.Modified)
                         .IsRequired();
+
+                    // Properties
+
+                    x.Property(y => y.Address1)
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    x.Property(y => y.Address2)
+                        .HasMaxLength(200);
+
+                    x.Property(y => y.Address3)
+                        .HasMaxLength(200);
+
+                    x.Property(y => y.Town)
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    x.Property(y => y.County)
+                        .HasMaxLength(100);
                 }
             );
         }

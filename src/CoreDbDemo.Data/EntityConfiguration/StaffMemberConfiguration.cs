@@ -22,12 +22,17 @@ namespace CoreDbDemo.Data.EntityConfiguration
                     x.HasKey(y => y.Id);
 
                     x.HasMany(y => y.Requests)
-                        .WithOne(y => y.StaffMember);
+                        .WithOne(y => y.StaffMember)
+                        .IsRequired();
 
-                    x.HasOne(y => y.Retailer);
+                    x.HasOne(y => y.Retailer)
+                        .WithMany(y => y.StaffMembers)
+                        .IsRequired();
 
 
                     // Base Entity Common Properties
+                    // If using a common model everywhere, does it make more sense to add required & max length etc. at model level as attributes?
+                    // Else we have to re-define these attributes in more than one place..
 
                     x.Property(y => y.Id)
                         .IsRequired();
@@ -43,6 +48,14 @@ namespace CoreDbDemo.Data.EntityConfiguration
                     x.Property(y => y.Firstname)
                         .IsRequired()
                         .HasMaxLength(100);
+
+                    x.Property(y => y.Surname)
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    x.Property(y => y.Email)
+                        .IsRequired()
+                        .HasMaxLength(255);
                 }
             );
         }

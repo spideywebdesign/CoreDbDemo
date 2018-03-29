@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>CoreDbDemo.Model</RootNamespace>
+    <AssemblyName>CoreDbDemo.Model</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
