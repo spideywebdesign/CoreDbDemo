@@ -4,6 +4,9 @@ using System.Text;
 using CoreDbDemo.Data.EntityConfiguration;
 using CoreDbDemo.Model.Entity;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
+using System.Threading.Tasks;
+using CoreDbDemo.Data.Extension;
 
 namespace CoreDbDemo.Data.Context
 {
@@ -14,8 +17,12 @@ namespace CoreDbDemo.Data.Context
         public DbSet<Request> Requests { get; set; }
         public DbSet<Model.Entity.System> Systems { get; set; }
         public DbSet<ArchivedStaffmember> ArchivedStaffMembers { get; set; }
-
+        
         public CoreDbDemoContext(DbContextOptions<CoreDbDemoContext> options) : base(options)
+        {
+
+        }
+        public CoreDbDemoContext()
         {
 
         }
@@ -26,6 +33,13 @@ namespace CoreDbDemo.Data.Context
             RetailerConfiguration.Configure(modelBuilder);
             RequestConfiguration.Configure(modelBuilder);
             SystemConfiguration.Configure(modelBuilder);
+        }
+
+        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            ChangeTracker.ApplyAuditInformation();
+
+            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
     }
 }

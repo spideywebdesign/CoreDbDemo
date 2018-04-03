@@ -2,20 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using CoreDbDemo.Data.Context;
+using CoreDbDemo.Model.Entity;
 using Microsoft.AspNetCore.Razor.Language.Intermediate;
 
 namespace CoreDbDemo.Data.Seeding
 {
     public class SeedDb
     {
-        public static void SeedDatabase()
+        public static void SeedDatabase(CoreDbDemoContext context)
         {
-            using (var context = new CoreDbDemoContext())
+            for (int i = 0; i < 50; i++)
             {
-                for (int i = 0; i < 50; i++)
-                {
-                    var staffMember
-                }
+                var staffMember = new StaffMember();
             }
         }
     }

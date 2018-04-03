@@ -32,6 +32,7 @@ namespace CoreDbDemo.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.EnsureDatabaseIsSeeded(false);
             }
 
             app.UseMvc();

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CoreDbDemo.Data.Context
 {
+    // required when local database does not exist or was deleted
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<CoreDbDemoContext>
     {
         public CoreDbDemoContext CreateDbContext(string[] args)

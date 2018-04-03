@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.API", "src\CoreDbDemo.API\CoreDbDemo.API.csproj", "{8429529F-224B-4001-BE64-AB17AF7BD8C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.Domain", "src\CoreDbDemo.Domain\CoreDbDemo.Domain.csproj", "{C58AB4E5-EED0-4C9F-8089-7D6A1760F546}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.Model", "src\CoreDbDemo.Domain\CoreDbDemo.Model.csproj", "{C58AB4E5-EED0-4C9F-8089-7D6A1760F546}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDbDemo.Common", "src\CoreDbDemo.Common\CoreDbDemo.Common.csproj", "{3AA2F397-2B89-4700-B79E-E1A2643BA185}"
 EndProject

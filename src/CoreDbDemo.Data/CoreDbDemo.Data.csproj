@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Extension\CoreDbDemoContextExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.2" />
   </ItemGroup>
 
@@ -16,11 +20,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoreDbDemo.Domain\CoreDbDemo.Domain.csproj" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <None Include="Extension\CoreDbDemoContextExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoreDbDemo.Domain\CoreDbDemo.Model.csproj" />
   </ItemGroup>
 
 </Project>
