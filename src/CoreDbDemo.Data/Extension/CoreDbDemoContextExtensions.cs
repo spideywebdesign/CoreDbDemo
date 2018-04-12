@@ -1,12 +1,16 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
+using CoreDbDemo.Data.Helpers;
 using CoreDbDemo.Data.Context;
 
 namespace CoreDbDemo.Data.Extension
 {
     public static class CoreDbDemoContextExtensions
     {
-		public static int EnsureSeedData(this CoreDbDemoContext context)
+        public static int EnsureSeedData(this CoreDbDemoContext context)
         {
             var retailerCount = default(int);
             var staffMemberCount = default(int);
@@ -17,10 +21,10 @@ namespace CoreDbDemo.Data.Extension
             // So let's keep tabs on the counts as they come back
 
             var dbSeeder = new DatabaseSeeder(context);
-			if(!context.Retailers.Any())
+            if (!context.Retailers.Any())
             {
-                var pathToSeedData = pathToSeedData.Combine(Directory.GetCurrentDirectory(), "SeedData", "RetailerSeedData.json");
-                retailerCount = dbSeeder.SeedRetailerEntriesFromJson(pathToSeedData).Result;
+                var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "RetailerSeedData.json");
+                retailerCount = dbSeeder.SeedRetailerEntitiesFromJson(pathToSeedData).Result;
             }
 
             return retailerCount;

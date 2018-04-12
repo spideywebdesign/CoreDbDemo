@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreDbDemo.Data.Extension;
 
 namespace CoreDbDemo.API.Extension
 {
@@ -14,11 +15,11 @@ namespace CoreDbDemo.API.Extension
     /// </summary>
     public static class ConfigureHttpPipelineExtensions
     {
-        public static int EnsureDatabaeIsSeeded(this IApplicationBuilder applicationBuilder, bool autoMigrateDatabase)
+        public static int EnsureDatabaseIsSeeded(this IApplicationBuilder applicationBuilder, bool autoMigrateDatabase)
         {
-            using (var erviceScope = applicationBuilder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            using (var serviceScope = applicationBuilder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                var context = IServiceScope.ServiceProvider.GetService<CoreDbDemoContext>();
+                var context = serviceScope.ServiceProvider.GetService<CoreDbDemoContext>();
                 if(autoMigrateDatabase)
                 {
                     //context.Database.Migrate();
