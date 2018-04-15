@@ -6,7 +6,60 @@
     "Address3": null,
     "Town": "My Town",
     "County": "TheShire",
-    "Postcode": "AB12 3CD"
+    "Postcode": "AB12 3CD",
+    "StaffMembers": [
+      {
+        "Firstname": "TestName1",
+        "Surname": "TestSurname1",
+        "Email": "test1@example.com",
+        "Requests": [
+          {
+            "RequestDate": "01/01/2018",
+            "Access": true,
+            "RequestProcessedDate": "01/02/2018",
+            "System": {
+              "Name": "External System 1",
+              "Description": "Test External System 1"
+            }
+          }
+        ]
+      },
+      {
+        "Firstname": "TestName2",
+        "Surname": "TestSurname2",
+        "Email": "test2@example.com",
+        "Requests": [
+          {
+            "RequestDate": "01/01/2018",
+            "Access": true,
+            "RequestProcessedDate": "15/01/2018",
+            "System": {
+              "Name": "External System 1",
+              "Description": "Test External System 1"
+            }
+          },
+          {
+            "RequestDate": "01/01/2018",
+            "Access": null,
+            "RequestProcessedDate": null,
+            "System": {
+              "Name": "External System 2",
+              "Description": "Test External System 2"
+            }
+          }
+        ]
+      },
+      {
+        "Firstname": "TestName3",
+        "Surname": "TestSurname3",
+        "Email": "test3@example.com"
+      },
+      {
+        "Firstname": "TestName4",
+        "Surname": "TestSurname4",
+        "Email": "test4@example.com"
+      }
+    ]
   },
   {
     "RetailerCode": "00002",
@@ -15,7 +68,8 @@
     "Address3": null,
     "Town": "My Town",
     "County": "TheShire",
-    "Postcode": "AB12 3CD"
+    "Postcode": "AB12 3CD",
+    "StaffMembers": []
   },
   {
     "RetailerCode": "00003",
@@ -24,7 +78,19 @@
     "Address3": null,
     "Town": "My Town",
     "County": "TheShire",
-    "Postcode": "AB12 3CD"
+    "Postcode": "AB12 3CD",
+    "StaffMembers": [
+      {
+        "Firstname": "TestName1",
+        "Surname": "TestSurname1",
+        "Email": "test1@example.com"
+      },
+      {
+        "Firstname": "TestName2",
+        "Surname": "TestSurname2",
+        "Email": "test2@example.com"
+      }
+    ]
   },
   {
     "RetailerCode": "00004",
@@ -33,7 +99,14 @@
     "Address3": null,
     "Town": "My Town",
     "County": "TheShire",
-    "Postcode": "AB12 3CD"
+    "Postcode": "AB12 3CD",
+    "StaffMembers": [
+      {
+        "Firstname": "TestName1",
+        "Surname": "TestSurname1",
+        "Email": "test1@example.com"
+      }
+    ]
   },
   {
     "RetailerCode": "00005",
@@ -42,7 +115,19 @@
     "Address3": null,
     "Town": "My Town",
     "County": "TheShire",
-    "Postcode": "AB12 3CD"
+    "Postcode": "AB12 3CD",
+    "StaffMembers": [
+      {
+        "Firstname": "TestName3",
+        "Surname": "TestSurname3",
+        "Email": "test3@example.com"
+      },
+      {
+        "Firstname": "TestName4",
+        "Surname": "TestSurname4",
+        "Email": "test4@example.com"
+      }
+    ]
   },
   {
     "RetailerCode": "00006",
@@ -51,6 +136,13 @@
     "Address3": null,
     "Town": "My Town",
     "County": "TheShire",
-    "Postcode": "AB12 3CD"
+    "Postcode": "AB12 3CD",
+    "StaffMembers": [
+      {
+        "Firstname": "TestName4",
+        "Surname": "TestSurname4",
+        "Email": "test4@example.com"
+      }
+    ]
   }
 ]

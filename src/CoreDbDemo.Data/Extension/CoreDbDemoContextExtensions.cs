@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
 using CoreDbDemo.Data.Helpers;
 using CoreDbDemo.Data.Context;
 
@@ -26,8 +23,13 @@ namespace CoreDbDemo.Data.Extension
                 var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "RetailerSeedData.json");
                 retailerCount = dbSeeder.SeedRetailerEntitiesFromJson(pathToSeedData).Result;
             }
+            if(!context.StaffMembers.Any())
+            {
+                var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "StaffMemberSeedData");
+                staffMemberCount = dbSeeder.SeedStaffMemberEntitiesFromJson(pathToSeedData).Result;
+            }
 
-            return retailerCount;
+            return retailerCount + staffMemberCount;
         }
     }
 }

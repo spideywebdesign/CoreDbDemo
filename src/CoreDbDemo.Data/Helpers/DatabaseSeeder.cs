@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CoreDbDemo.Data.Context;
 using CoreDbDemo.Model.Entity;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace CoreDbDemo.Data.Helpers
 {
@@ -30,7 +31,7 @@ namespace CoreDbDemo.Data.Helpers
             }
 
             var dataSet = File.ReadAllText(filePath);
-            var seedData = JsonConvert.DeserializeObject<List<Retailer>>(dataSet);
+            var seedData = JsonConvert.DeserializeObject<List<Retailer>>(dataSet, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
 
             _context.Retailers.AddRange(seedData);
 
