@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using CoreDbDemo.Data.Extension;
+using CoreDbDemo.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreDbDemo.API
 {
@@ -26,6 +28,10 @@ namespace CoreDbDemo.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            var connection = Configuration.GetConnectionString("CoreDbDemoDB");
+            services.AddDbContext<CoreDbDemoContext>(options => options.UseSqlServer(connection));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
