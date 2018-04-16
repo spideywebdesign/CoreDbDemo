@@ -23,11 +23,6 @@ namespace CoreDbDemo.Data.Extension
                 var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "RetailerSeedData.json");
                 retailerCount = dbSeeder.SeedRetailerEntitiesFromJson(pathToSeedData).Result;
             }
-            if(!context.StaffMembers.Any())
-            {
-                var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "StaffMemberSeedData");
-                staffMemberCount = dbSeeder.SeedStaffMemberEntitiesFromJson(pathToSeedData).Result;
-            }
 
             return retailerCount + staffMemberCount;
         }
