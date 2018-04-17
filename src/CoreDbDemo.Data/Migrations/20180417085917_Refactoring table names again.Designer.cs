@@ -11,9 +11,10 @@ using System;
 namespace CoreDbDemo.Data.Migrations
 {
     [DbContext(typeof(CoreDbDemoContext))]
-    partial class CoreDbDemoContextModelSnapshot : ModelSnapshot
+    [Migration("20180417085917_Refactoring table names again")]
+    partial class Refactoringtablenamesagain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CoreDbDemo.Data.EntityConfiguration
 {
-    public class SystemConfiguration
+    public class ExternalSystemConfiguration
     {
         public static void Configure(ModelBuilder modelBuilder)
         {
@@ -14,14 +14,14 @@ namespace CoreDbDemo.Data.EntityConfiguration
 
             // ENSURE THAT this configuration is registered in CoreDbDemo.Data.Context/CoreDbDemoContext/OnModelCreating
 
-            modelBuilder.Entity<Model.Entity.System>(x =>
+            modelBuilder.Entity<Model.Entity.ExternalSystem>(x =>
             {
                 // Relationships
 
                 x.HasKey(y => y.Id);
 
                 x.HasMany(y => y.Requests)
-                    .WithOne(y => y.System);
+                    .WithOne(y => y.ExternalSystem);
 
 
                 // Base Entity Common Properties

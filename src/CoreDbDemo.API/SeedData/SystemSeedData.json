@@ -1,0 +1,17 @@
+﻿[
+  {
+    "id": 1,
+    "Name": "External System 1",
+    "Description": "External System 1 description..."
+  },
+  {
+    "id": 2,
+    "Name": "External System 2",
+    "Description": "External System 2 description..."
+  },
+  {
+    "id": 3,
+    "Name": "External System 3",
+    "Description": "External System 3 description..."
+  }
+]

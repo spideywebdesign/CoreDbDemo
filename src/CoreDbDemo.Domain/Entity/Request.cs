@@ -8,7 +8,7 @@ namespace CoreDbDemo.Model.Entity
         public bool? Access { get; set; }
         public DateTime? RequestProcessedDate { get; set; }
 
-        public virtual System System { get; set; }
+        public virtual ExternalSystem ExternalSystem { get; set; }
         public virtual StaffMember StaffMember { get; set; }
     }
 }

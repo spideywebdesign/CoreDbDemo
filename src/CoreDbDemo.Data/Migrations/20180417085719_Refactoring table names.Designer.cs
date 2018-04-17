@@ -11,9 +11,10 @@ using System;
 namespace CoreDbDemo.Data.Migrations
 {
     [DbContext(typeof(CoreDbDemoContext))]
-    partial class CoreDbDemoContextModelSnapshot : ModelSnapshot
+    [Migration("20180417085719_Refactoring table names")]
+    partial class Refactoringtablenames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +50,7 @@ namespace CoreDbDemo.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ExternalSystems");
+                    b.ToTable("Systems");
                 });
 
             modelBuilder.Entity("CoreDbDemo.Model.Entity.Request", b =>

@@ -15,9 +15,9 @@ namespace CoreDbDemo.Data.Context
         public DbSet<StaffMember> StaffMembers { get; set; }
         public DbSet<Retailer> Retailers { get; set; }
         public DbSet<Request> Requests { get; set; }
-        public DbSet<Model.Entity.System> Systems { get; set; }
+        public DbSet<Model.Entity.ExternalSystem> ExternalSystems { get; set; }
         public DbSet<ArchivedStaffmember> ArchivedStaffMembers { get; set; }
-        
+
         public CoreDbDemoContext(DbContextOptions<CoreDbDemoContext> options) : base(options)
         {
 
@@ -32,7 +32,7 @@ namespace CoreDbDemo.Data.Context
             StaffMemberConfiguration.Configure(modelBuilder);
             RetailerConfiguration.Configure(modelBuilder);
             RequestConfiguration.Configure(modelBuilder);
-            SystemConfiguration.Configure(modelBuilder);
+            ExternalSystemConfiguration.Configure(modelBuilder);
         }
 
         public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))

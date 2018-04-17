@@ -2,7 +2,7 @@
 
 namespace CoreDbDemo.Model.Entity
 {
-    public class System : EntityBase
+    public class ExternalSystem : EntityBase
     {
         public string Name { get; set; }
         public string Description { get; set; }

@@ -9,8 +9,8 @@ namespace CoreDbDemo.Data.Extension
     {
         public static int EnsureSeedData(this CoreDbDemoContext context)
         {
+            var systemCount = default(int);
             var retailerCount = default(int);
-            var staffMemberCount = default(int);
 
             // Because each of the following seed method needs to do a save
             // (the data they're importing is relational), we need to call
@@ -18,13 +18,18 @@ namespace CoreDbDemo.Data.Extension
             // So let's keep tabs on the counts as they come back
 
             var dbSeeder = new DatabaseSeeder(context);
+            if (!context.ExternalSystems.Any())
+            {
+                var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "SystemSeedData.json");
+                systemCount = dbSeeder.SeedSystemEntitiesFromJson(pathToSeedData).Result;
+            }
             if (!context.Retailers.Any())
             {
                 var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "RetailerSeedData.json");
                 retailerCount = dbSeeder.SeedRetailerEntitiesFromJson(pathToSeedData).Result;
             }
 
-            return retailerCount + staffMemberCount;
+            return retailerCount + systemCount;
         }
     }
 }

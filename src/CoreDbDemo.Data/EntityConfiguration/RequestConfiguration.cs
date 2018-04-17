@@ -25,7 +25,7 @@ namespace CoreDbDemo.Data.EntityConfiguration
                     .WithMany(y => y.Requests)
                     .IsRequired();
 
-                x.HasOne(y => y.System)
+                x.HasOne(y => y.ExternalSystem)
                     .WithMany(y => y.Requests)
                     // We don't want all requests to be deleted if a system is removed do we?
                     .OnDelete(DeleteBehavior.Restrict)
