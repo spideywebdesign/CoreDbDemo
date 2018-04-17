@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using CoreDbDemo.Data.Context;
 using CoreDbDemo.Model.Entity;
@@ -52,7 +51,7 @@ namespace CoreDbDemo.Data.Helpers
             }
 
             var dataSet = File.ReadAllText(filePath);
-            var seedData = JsonConvert.DeserializeObject<List<Model.Entity.ExternalSystem>>(dataSet);
+            var seedData = JsonConvert.DeserializeObject<List<ExternalSystem>>(dataSet);
 
             _context.ExternalSystems.AddRange(seedData);
             _context.Database.OpenConnection();

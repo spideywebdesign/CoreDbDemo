@@ -11,9 +11,10 @@ using System;
 namespace CoreDbDemo.Data.Migrations
 {
     [DbContext(typeof(CoreDbDemoContext))]
-    partial class CoreDbDemoContextModelSnapshot : ModelSnapshot
+    [Migration("20180417125240_Modified column should be nullable")]
+    partial class Modifiedcolumnshouldbenullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +44,8 @@ namespace CoreDbDemo.Data.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<DateTime?>("Modified");
+                    b.Property<DateTime?>("Modified")
+                        .IsRequired();
 
                     b.Property<string>("Name");
 
@@ -63,7 +65,8 @@ namespace CoreDbDemo.Data.Migrations
 
                     b.Property<int>("ExternalSystemId");
 
-                    b.Property<DateTime?>("Modified");
+                    b.Property<DateTime?>("Modified")
+                        .IsRequired();
 
                     b.Property<DateTime>("RequestDate");
 
@@ -101,7 +104,8 @@ namespace CoreDbDemo.Data.Migrations
 
                     b.Property<DateTime>("Created");
 
-                    b.Property<DateTime?>("Modified");
+                    b.Property<DateTime?>("Modified")
+                        .IsRequired();
 
                     b.Property<string>("Postcode");
 
@@ -131,7 +135,8 @@ namespace CoreDbDemo.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
-                    b.Property<DateTime?>("Modified");
+                    b.Property<DateTime?>("Modified")
+                        .IsRequired();
 
                     b.Property<int?>("RetailerId")
                         .IsRequired();

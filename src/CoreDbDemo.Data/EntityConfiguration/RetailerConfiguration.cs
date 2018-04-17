@@ -35,9 +35,6 @@ namespace CoreDbDemo.Data.EntityConfiguration
                     x.Property(y => y.Created)
                         .IsRequired();
 
-                    x.Property(y => y.Modified)
-                        .IsRequired();
-
                     // Properties
 
                     x.Property(y => y.Address1)

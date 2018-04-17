@@ -39,101 +39,207 @@
             "ExternalSystemId": 2
           }
         ]
-      }//,
-      //{
-      //  "Firstname": "TestName3",
-      //  "Surname": "TestSurname3",
-      //  "Email": "test3@example.com"
-      //},
-      //{
-      //  "Firstname": "TestName4",
-      //  "Surname": "TestSurname4",
-      //  "Email": "test4@example.com"
-      //}
+      },
+      {
+        "Firstname": "TestName3",
+        "Surname": "TestSurname3",
+        "Email": "test3@example.com",
+        "Requests": [
+          {
+            "RequestDate": "01/01/2018",
+            "Access": false,
+            "RequestProcessedDate": "18/01/2018",
+            "ExternalSystemId": 1
+          },
+          {
+            "RequestDate": "01/01/2018",
+            "Access": null,
+            "RequestProcessedDate": null,
+            "ExternalSystemId": 2
+          }
+        ]
+      },
+      {
+        "Firstname": "TestName4",
+        "Surname": "TestSurname4",
+        "Email": "test4@example.com",
+        "Requests": [
+          {
+            "RequestDate": "01/01/2018",
+            "Access": null,
+            "RequestProcessedDate": null,
+            "ExternalSystemId": 1
+          },
+          {
+            "RequestDate": "01/01/2018",
+            "Access": true,
+            "RequestProcessedDate": "03/03/2018",
+            "ExternalSystemId": 2
+          }
+        ]
+      }
     ]
-  }//,
-  //{
-  //  "RetailerCode": "00002",
-  //  "Address1": "2 My St.",
-  //  "Address2": null,
-  //  "Address3": null,
-  //  "Town": "My Town",
-  //  "County": "TheShire",
-  //  "Postcode": "AB12 3CD",
-  //  "StaffMembers": []
-  //},
-  //{
-  //  "RetailerCode": "00003",
-  //  "Address1": "3 My St.",
-  //  "Address2": null,
-  //  "Address3": null,
-  //  "Town": "My Town",
-  //  "County": "TheShire",
-  //  "Postcode": "AB12 3CD",
-  //  "StaffMembers": [
-  //    {
-  //      "Firstname": "TestName1",
-  //      "Surname": "TestSurname1",
-  //      "Email": "test1@example.com"
-  //    },
-  //    {
-  //      "Firstname": "TestName2",
-  //      "Surname": "TestSurname2",
-  //      "Email": "test2@example.com"
-  //    }
-  //  ]
-  //},
-  //{
-  //  "RetailerCode": "00004",
-  //  "Address1": "4 My St.",
-  //  "Address2": null,
-  //  "Address3": null,
-  //  "Town": "My Town",
-  //  "County": "TheShire",
-  //  "Postcode": "AB12 3CD",
-  //  "StaffMembers": [
-  //    {
-  //      "Firstname": "TestName1",
-  //      "Surname": "TestSurname1",
-  //      "Email": "test1@example.com"
-  //    }
-  //  ]
-  //},
-  //{
-  //  "RetailerCode": "00005",
-  //  "Address1": "5 My St.",
-  //  "Address2": null,
-  //  "Address3": null,
-  //  "Town": "My Town",
-  //  "County": "TheShire",
-  //  "Postcode": "AB12 3CD",
-  //  "StaffMembers": [
-  //    {
-  //      "Firstname": "TestName3",
-  //      "Surname": "TestSurname3",
-  //      "Email": "test3@example.com"
-  //    },
-  //    {
-  //      "Firstname": "TestName4",
-  //      "Surname": "TestSurname4",
-  //      "Email": "test4@example.com"
-  //    }
-  //  ]
-  //},
-  //{
-  //  "RetailerCode": "00006",
-  //  "Address1": "6 My St.",
-  //  "Address2": null,
-  //  "Address3": null,
-  //  "Town": "My Town",
-  //  "County": "TheShire",
-  //  "Postcode": "AB12 3CD",
-  //  "StaffMembers": [
-  //    {
-  //      "Firstname": "TestName4",
-  //      "Surname": "TestSurname4",
-  //      "Email": "test4@example.com"
-  //    }
-  //  ]
-  //}
+  },
+  {
+    "RetailerCode": "00002",
+    "Address1": "2 My St.",
+    "Address2": null,
+    "Address3": null,
+    "Town": "My Town",
+    "County": "TheShire",
+    "Postcode": "AB12 3CD",
+    "StaffMembers": []
+  },
+  {
+    "RetailerCode": "00003",
+    "Address1": "3 My St.",
+    "Address2": null,
+    "Address3": null,
+    "Town": "My Town",
+    "County": "TheShire",
+    "Postcode": "AB12 3CD",
+    "StaffMembers": [
+      {
+        "Firstname": "TestName1",
+        "Surname": "TestSurname1",
+        "Email": "test1@example.com",
+        "Requests": [
+          {
+            "RequestDate": "01/01/2018",
+            "Access": null,
+            "RequestProcessedDate": null,
+            "ExternalSystemId": 1
+          }
+        ]
+      },
+      {
+        "Firstname": "TestName2",
+        "Surname": "TestSurname2",
+        "Email": "test2@example.com",
+        "Requests": [
+          {
+            "RequestDate": "01/01/2018",
+            "Access": true,
+            "RequestProcessedDate": "03/03/2018",
+            "ExternalSystemId": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "RetailerCode": "00004",
+    "Address1": "4 My St.",
+    "Address2": null,
+    "Address3": null,
+    "Town": "My Town",
+    "County": "TheShire",
+    "Postcode": "AB12 3CD",
+    "StaffMembers": [
+      {
+        "Firstname": "TestName1",
+        "Surname": "TestSurname1",
+        "Email": "test1@example.com",
+        "Requests": [
+          {
+            "RequestDate": "01/01/2018",
+            "Access": true,
+            "RequestProcessedDate": "16/02/2018",
+            "ExternalSystemId": 1
+          },
+          {
+            "RequestDate": "01/01/2018",
+            "Access": true,
+            "RequestProcessedDate": "03/03/2018",
+            "ExternalSystemId": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "RetailerCode": "00005",
+    "Address1": "5 My St.",
+    "Address2": null,
+    "Address3": null,
+    "Town": "My Town",
+    "County": "TheShire",
+    "Postcode": "AB12 3CD",
+    "StaffMembers": [
+      {
+        "Firstname": "TestName3",
+        "Surname": "TestSurname3",
+        "Email": "test3@example.com",
+        "Requests": [
+          {
+            "RequestDate": "01/02/2018",
+            "Access": true,
+            "RequestProcessedDate": "16/02/2018",
+            "ExternalSystemId": 3
+          },
+          {
+            "RequestDate": "01/04/2018",
+            "Access": false,
+            "RequestProcessedDate": "03/04/2018",
+            "ExternalSystemId": 2
+          }
+        ]
+      },
+      {
+        "Firstname": "TestName4",
+        "Surname": "TestSurname4",
+        "Email": "test4@example.com",
+        "Requests": [
+          {
+            "RequestDate": "21/02/2018",
+            "Access": false,
+            "RequestProcessedDate": "16/04/2018",
+            "ExternalSystemId": 1
+          },
+          {
+            "RequestDate": "01/01/2018",
+            "Access": null,
+            "RequestProcessedDate": null,
+            "ExternalSystemId": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "RetailerCode": "00006",
+    "Address1": "6 My St.",
+    "Address2": null,
+    "Address3": null,
+    "Town": "My Town",
+    "County": "TheShire",
+    "Postcode": "AB12 3CD",
+    "StaffMembers": [
+      {
+        "Firstname": "TestName4",
+        "Surname": "TestSurname4",
+        "Email": "test4@example.com",
+        "Requests": [
+          {
+            "RequestDate": "01/02/2018",
+            "Access": true,
+            "RequestProcessedDate": "16/02/2018",
+            "ExternalSystemId": 1
+          },
+          {
+            "RequestDate": "30/03/2018",
+            "Access": true,
+            "RequestProcessedDate": "03/04/2018",
+            "ExternalSystemId": 2
+          },
+          {
+            "RequestDate": "01/01/2018",
+            "Access": true,
+            "RequestProcessedDate": "03/03/2018",
+            "ExternalSystemId": 3
+          }
+        ]
+      }
+    ]
+  }
 ]
