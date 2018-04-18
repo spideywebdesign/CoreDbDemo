@@ -241,5 +241,14 @@
         ]
       }
     ]
+  },
+  {
+    "RetailerCode": "00007",
+    "Address1": "7 My St.",
+    "Address2": null,
+    "Address3": null,
+    "Town": "My Town",
+    "County": "TheShire",
+    "Postcode": "AB12 3CD"
   }
 ]

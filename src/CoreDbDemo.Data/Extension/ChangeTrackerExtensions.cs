@@ -7,6 +7,9 @@ using CoreDbDemo.Model.Entity;
 
 namespace CoreDbDemo.Data.Extension
 {
+    /// <summary>
+    /// Extension to change tracker to ensure Created / Modified dates are added accordingly
+    /// </summary>
     public static class ChangeTrackerExtentions
     {
         public static void ApplyAuditInformation(this ChangeTracker changeTracker)

@@ -20,10 +20,10 @@ namespace CoreDbDemo.API.Extension
             using (var serviceScope = applicationBuilder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<CoreDbDemoContext>();
-                if(autoMigrateDatabase)
-                {
-                    //context.Database.Migrate();
-                }
+                //if(autoMigrateDatabase)
+                //{
+                //    //context.Database.Migrate();
+                //}
                 return context.EnsureSeedData();
             }
         }

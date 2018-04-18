@@ -5,6 +5,9 @@ using CoreDbDemo.Data.Context;
 
 namespace CoreDbDemo.Data.Extension
 {
+    /// <summary>
+    /// Extension of db context so we can easily seed data
+    /// </summary>
     public static class CoreDbDemoContextExtensions
     {
         public static int EnsureSeedData(this CoreDbDemoContext context)
