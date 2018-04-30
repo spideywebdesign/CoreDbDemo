@@ -15,7 +15,7 @@ namespace CoreDbDemo.Data.EntityConfiguration
 
             // ENSURE THAT this configuration is registered in CoreDbDemo.Data.Context/CoreDbDemoContext/OnModelCreating
 
-            modelBuilder.Entity<Retailer>(x =>
+            modelBuilder.Entity<RetailerDbo>(x =>
                 {
                     // Relationships
 

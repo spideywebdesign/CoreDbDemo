@@ -12,11 +12,11 @@ namespace CoreDbDemo.Data.Context
 {
     public class CoreDbDemoContext : DbContext
     {
-        public DbSet<StaffMember> StaffMembers { get; set; }
-        public DbSet<Retailer> Retailers { get; set; }
-        public DbSet<Request> Requests { get; set; }
-        public DbSet<Model.Entity.ExternalSystem> ExternalSystems { get; set; }
-        public DbSet<ArchivedStaffmember> ArchivedStaffMembers { get; set; }
+        public DbSet<StaffMemberDbo> StaffMembers { get; set; }
+        public DbSet<RetailerDbo> Retailers { get; set; }
+        public DbSet<RequestDbo> Requests { get; set; }
+        public DbSet<Model.Entity.ExternalSystemDbo> ExternalSystems { get; set; }
+        public DbSet<ArchivedStaffmemberDbo> ArchivedStaffMembers { get; set; }
 
         public CoreDbDemoContext(DbContextOptions<CoreDbDemoContext> options) : base(options)
         {

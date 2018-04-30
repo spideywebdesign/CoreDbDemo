@@ -2,7 +2,7 @@
 
 namespace CoreDbDemo.Model.Entity
 {
-    public class Request : EntityBase
+    public class RequestDbo : EntityBase
     {
         public DateTime RequestDate { get; set; }
         public bool? Access { get; set; }
@@ -10,7 +10,7 @@ namespace CoreDbDemo.Model.Entity
         public int ExternalSystemId { get; set; }
         public int StaffMemberId { get; set; }
 
-        public virtual ExternalSystem ExternalSystem { get; set; }
-        public virtual StaffMember StaffMember { get; set; }
+        public virtual ExternalSystemDbo ExternalSystem { get; set; }
+        public virtual StaffMemberDbo StaffMember { get; set; }
     }
 }

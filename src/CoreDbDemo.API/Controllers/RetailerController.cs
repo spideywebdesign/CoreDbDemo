@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using CoreDbDemo.Model.Domain;
+using CoreDbDemo.Strategy.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CoreDbDemo.API.Controllers
 {
@@ -11,18 +10,25 @@ namespace CoreDbDemo.API.Controllers
     [Route("api/Retailer")]
     public class RetailerController : Controller
     {
+        private readonly IRetailerStrategy _retailerStrategy;
+
+        public RetailerController(IRetailerStrategy retailerStrategy)
+        {
+            _retailerStrategy = retailerStrategy;
+        }
+
         // GET: api/Retailer
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<Retailer>> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            return await _retailerStrategy.GetAll();
         }
 
         // GET: api/Retailer/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public async Task<Retailer> Get(int id)
         {
-            return "value";
+            return await _retailerStrategy.Get(id);
         }
 
         // POST: api/Retailer

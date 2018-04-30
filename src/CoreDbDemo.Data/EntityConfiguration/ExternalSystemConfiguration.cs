@@ -14,7 +14,7 @@ namespace CoreDbDemo.Data.EntityConfiguration
 
             // ENSURE THAT this configuration is registered in CoreDbDemo.Data.Context/CoreDbDemoContext/OnModelCreating
 
-            modelBuilder.Entity<Model.Entity.ExternalSystem>(x =>
+            modelBuilder.Entity<Model.Entity.ExternalSystemDbo>(x =>
             {
                 // Relationships
 

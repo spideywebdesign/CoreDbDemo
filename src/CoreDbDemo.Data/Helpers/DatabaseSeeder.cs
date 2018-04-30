@@ -31,7 +31,7 @@ namespace CoreDbDemo.Data.Helpers
             }
 
             var dataSet = File.ReadAllText(filePath);
-            var seedData = JsonConvert.DeserializeObject<List<Retailer>>(dataSet, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+            var seedData = JsonConvert.DeserializeObject<List<RetailerDbo>>(dataSet, new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
             // When seeding objects with links to a reference table, we need to ensure we can pass in just the id of the referenced table (in this instance: ExternalSystemId)
             // Creating an object of the referenced entity will unsurprisingly create a new record in the database, breaking our intended references.
 
@@ -53,7 +53,7 @@ namespace CoreDbDemo.Data.Helpers
             }
 
             var dataSet = File.ReadAllText(filePath);
-            var seedData = JsonConvert.DeserializeObject<List<ExternalSystem>>(dataSet);
+            var seedData = JsonConvert.DeserializeObject<List<ExternalSystemDbo>>(dataSet);
 
             _context.ExternalSystems.AddRange(seedData);
 

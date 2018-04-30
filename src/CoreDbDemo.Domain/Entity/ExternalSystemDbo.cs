@@ -2,11 +2,11 @@
 
 namespace CoreDbDemo.Model.Entity
 {
-    public class ExternalSystem : EntityBase
+    public class ExternalSystemDbo : EntityBase
     {
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public virtual ICollection<Request> Requests { get; set; }
+        public virtual ICollection<RequestDbo> Requests { get; set; }
     }
 }

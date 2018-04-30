@@ -15,7 +15,7 @@ namespace CoreDbDemo.API.Extension
     /// </summary>
     public static class ConfigureHttpPipelineExtensions
     {
-        public static int EnsureDatabaseIsSeeded(this IApplicationBuilder applicationBuilder, bool autoMigrateDatabase)
+        public async static Task<int> EnsureDatabaseIsSeeded(this IApplicationBuilder applicationBuilder, bool autoMigrateDatabase)
         {
             using (var serviceScope = applicationBuilder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
@@ -24,7 +24,7 @@ namespace CoreDbDemo.API.Extension
                 //{
                 //    //context.Database.Migrate();
                 //}
-                return context.EnsureSeedData();
+                return await context.EnsureSeedData();
             }
         }
     }

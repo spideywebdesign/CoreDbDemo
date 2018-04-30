@@ -2,6 +2,7 @@
 using System.Linq;
 using CoreDbDemo.Data.Helpers;
 using CoreDbDemo.Data.Context;
+using System.Threading.Tasks;
 
 namespace CoreDbDemo.Data.Extension
 {
@@ -10,7 +11,7 @@ namespace CoreDbDemo.Data.Extension
     /// </summary>
     public static class CoreDbDemoContextExtensions
     {
-        public static int EnsureSeedData(this CoreDbDemoContext context)
+        public async static Task<int> EnsureSeedData(this CoreDbDemoContext context)
         {
             var systemCount = default(int);
             var retailerCount = default(int);
@@ -24,12 +25,12 @@ namespace CoreDbDemo.Data.Extension
             if (!context.ExternalSystems.Any())
             {
                 var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "SystemSeedData.json");
-                systemCount = dbSeeder.SeedSystemEntitiesFromJson(pathToSeedData).Result;
+                systemCount = await dbSeeder.SeedSystemEntitiesFromJson(pathToSeedData);
             }
             if (!context.Retailers.Any())
             {
                 var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "RetailerSeedData.json");
-                retailerCount = dbSeeder.SeedRetailerEntitiesFromJson(pathToSeedData).Result;
+                retailerCount = await dbSeeder.SeedRetailerEntitiesFromJson(pathToSeedData);
             }
 
             return retailerCount + systemCount;
