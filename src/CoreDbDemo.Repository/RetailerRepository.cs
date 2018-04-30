@@ -5,6 +5,7 @@ using CoreDbDemo.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace CoreDbDemo.Repository
@@ -32,6 +33,7 @@ namespace CoreDbDemo.Repository
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 Log.Error($"Error in method {nameof(Get)} in {nameof(RetailerRepository)}", ex);
             }
 
@@ -52,6 +54,7 @@ namespace CoreDbDemo.Repository
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 Log.Error($"Error in method {nameof(Get)} in {nameof(RetailerRepository)}", ex);
             }
 

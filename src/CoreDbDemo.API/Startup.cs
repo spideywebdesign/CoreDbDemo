@@ -64,7 +64,7 @@ namespace CoreDbDemo.API
             loggerFactory.AddNLog();
             loggerFactory.AddAzureWebAppDiagnostics();
 
-            app.AddNLogWeb();
+            //app.AddNLogWeb();
 
             if (env.IsDevelopment())
             {

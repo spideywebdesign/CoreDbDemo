@@ -17,15 +17,15 @@ namespace CoreDbDemo.API.Controllers
             _retailerStrategy = retailerStrategy;
         }
 
-        // GET: api/Retailer
-        [HttpGet]
+        // GET: api/Retailer/GetAll
+        [HttpGet("GetAll")]
         public async Task<IEnumerable<Retailer>> GetAll()
         {
             return await _retailerStrategy.GetAll();
         }
 
         // GET: api/Retailer/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("Get/{id}")]
         public async Task<Retailer> Get(int id)
         {
             return await _retailerStrategy.Get(id);
