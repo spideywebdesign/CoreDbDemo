@@ -31,6 +31,13 @@ namespace CoreDbDemo.API.Controllers
             return await _retailerStrategy.Get(id);
         }
 
+        // GET: api/Retailer/GetByStaffMember
+        [HttpGet("GetByStaffMember/{id}")]
+        public async Task<Retailer> GetByStaffMember(int id)
+        {
+            return await _retailerStrategy.GetByStaffMember(id);
+        }
+
         // POST: api/Retailer
         [HttpPost]
         public void Post([FromBody]string value)

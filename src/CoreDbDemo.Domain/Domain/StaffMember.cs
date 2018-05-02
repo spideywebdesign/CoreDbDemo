@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CoreDbDemo.Model.Domain
+﻿namespace CoreDbDemo.Model.Domain
 {
-    public class StaffMember
+    public class StaffMember : DomainBase
     {
         public string Firstname { get; set; }
         public string Surname { get; set; }

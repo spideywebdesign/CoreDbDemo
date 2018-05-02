@@ -4,6 +4,7 @@ using CoreDbDemo.Model.Entity;
 using CoreDbDemo.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -63,12 +64,51 @@ namespace CoreDbDemo.Repository
 
         public async Task<RetailerDbo> GetByStaffMember(StaffMemberDbo staffMember)
         {
-            throw new NotImplementedException();
+            return await GetByStaffMember(staffMember.Id);
+        }
+        public async Task<RetailerDbo> GetByStaffMember(int id)
+        {
+            RetailerDbo item = null;
+
+            try
+            {
+                Log.Debug($"{nameof(GetByStaffMember)} called on {nameof(RetailerRepository)}, id: \"{id}\"");
+
+                var staffMember = await _context.StaffMembers.Include(x => x.Retailer).SingleOrDefaultAsync(x => x.Id == id);//.Result.Retailer;//
+                if (staffMember == null) return null;
+
+                item = staffMember.Retailer;
+
+                Log.Debug($"{(item == null ? "0" : "1")} item(s) was found in {nameof(RetailerRepository)} for id: \"{id}\"");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                Log.Error($"Error in method {nameof(GetByStaffMember)} in {nameof(RetailerRepository)}", ex);
+            }
+
+            return item;
         }
 
-        public async Task<RetailerDbo> Save(RetailerDbo retailer)
+        public async Task<int> Save(RetailerDbo retailer)
         {
-            throw new NotImplementedException();
+            int id = default(int);
+            try
+            {
+                Log.Debug($"{nameof(Save)} called on {nameof(RetailerRepository)}");
+
+                _context.Retailers.Update(retailer);
+                id = await _context.SaveChangesAsync();
+
+                Log.Debug($"Retailer saved in method {nameof(Save)} called on {nameof(RetailerRepository)}");
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+                Log.Error($"Error in method {nameof(Save)} in {nameof(RetailerRepository)}");
+            }
+
+            return id;
         }
     }
 }

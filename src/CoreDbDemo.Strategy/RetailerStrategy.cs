@@ -32,7 +32,11 @@ namespace CoreDbDemo.Strategy
         }
         public async Task<Retailer> GetByStaffMember(StaffMember staffMember)
         {
-            var retailerDbo = await _retailerRepository.GetByStaffMember(_mapper.Map<StaffMemberDbo>(staffMember));
+            return await GetByStaffMember(staffMember.Id);
+        }
+        public async Task<Retailer> GetByStaffMember(int id)
+        {
+            var retailerDbo = await _retailerRepository.GetByStaffMember(id);
             return _mapper.Map<Retailer>(retailerDbo);
         }
         public async Task<Retailer> Save(Retailer retailer)

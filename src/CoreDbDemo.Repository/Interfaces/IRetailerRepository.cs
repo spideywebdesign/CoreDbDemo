@@ -1,7 +1,5 @@
 ﻿using CoreDbDemo.Model.Entity;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CoreDbDemo.Repository.Interfaces
@@ -11,6 +9,7 @@ namespace CoreDbDemo.Repository.Interfaces
         Task<RetailerDbo> Get(int id);
         Task<IEnumerable<RetailerDbo>> GetAll();
         Task<RetailerDbo> GetByStaffMember(StaffMemberDbo staffMember);
-        Task<RetailerDbo> Save(RetailerDbo retailer);
+        Task<RetailerDbo> GetByStaffMember(int id);
+        Task<int> Save(RetailerDbo retailer);
     }
 }
