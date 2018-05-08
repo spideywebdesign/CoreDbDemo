@@ -100,7 +100,7 @@ namespace CoreDbDemo.Repository
                 _context.Requests.Update(request);
                 id = await _context.SaveChangesAsync();
 
-                Log.Debug($"StaffMember saved in method {nameof(Save)} called on {nameof(RequestRepository)}");
+                Log.Debug($"Request saved in method {nameof(Save)} called on {nameof(RequestRepository)}");
             }
             catch (Exception ex)
             {
