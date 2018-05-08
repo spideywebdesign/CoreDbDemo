@@ -3,9 +3,7 @@ using CoreDbDemo.Model.Domain;
 using CoreDbDemo.Model.Entity;
 using CoreDbDemo.Repository.Interfaces;
 using CoreDbDemo.Strategy.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CoreDbDemo.Strategy
@@ -39,10 +37,10 @@ namespace CoreDbDemo.Strategy
             var staffMemberDbo = await _staffMemberRepository.GetByRetailer(id);
             return _mapper.Map<IEnumerable<StaffMember>>(staffMemberDbo);
         }
-        public async Task<StaffMember> Save(StaffMember staffMember)
+        public async Task<int> Save(StaffMember staffMember)
         {
-            var staffMemberDbo = await _staffMemberRepository.Save(_mapper.Map<StaffMemberDbo>(staffMember));
-            return _mapper.Map<StaffMember>(staffMemberDbo);
+            var staffMemberId = await _staffMemberRepository.Save(_mapper.Map<StaffMemberDbo>(staffMember));
+            return staffMemberId;
         }
     }
 }
