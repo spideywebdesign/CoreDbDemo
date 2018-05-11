@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CoreDbDemo.Model.Domain;
-using CoreDbDemo.Model.Entity;
 using CoreDbDemo.Repository.Interfaces;
 using CoreDbDemo.Strategy.Interfaces;
 using System.Collections.Generic;
@@ -32,10 +31,12 @@ namespace CoreDbDemo.Strategy
             return _mapper.Map<IEnumerable<ExternalSystem>>(externalSystemDbos);
         }
 
-        public async Task<int> AddOrUpdate(ExternalSystem externalSystem)
+        public async Task<ExternalSystem> AddOrUpdate(ExternalSystem externalSystem)
         {
-            var externalSystemId = await _externalSystemRepository.AddOrUpdate(_mapper.Map<ExternalSystemDbo>(externalSystem));
-            return externalSystemId;
+            var externalSystemDbo = await _externalSystemRepository.Get(externalSystem.Id);
+            externalSystemDbo = _mapper.Map(externalSystem, externalSystemDbo);
+
+            return _mapper.Map<ExternalSystem>(await _externalSystemRepository.AddOrUpdate(externalSystemDbo));
         }
     }
 }

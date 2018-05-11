@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CoreDbDemo.Model.Domain;
-using CoreDbDemo.Model.Entity;
 using CoreDbDemo.Repository.Interfaces;
 using CoreDbDemo.Strategy.Interfaces;
 using System.Collections.Generic;
@@ -37,10 +36,12 @@ namespace CoreDbDemo.Strategy
             var staffMemberDbo = await _staffMemberRepository.GetByRetailer(id);
             return _mapper.Map<IEnumerable<StaffMember>>(staffMemberDbo);
         }
-        public async Task<int> AddOrUpdate(StaffMember staffMember)
+        public async Task<StaffMember> AddOrUpdate(StaffMember staffMember)
         {
-            var staffMemberId = await _staffMemberRepository.AddOrUpdate(_mapper.Map<StaffMemberDbo>(staffMember));
-            return staffMemberId;
+            var staffMemberDbo = await _staffMemberRepository.Get(staffMember.Id);
+            staffMemberDbo = _mapper.Map(staffMember, staffMemberDbo);
+
+            return _mapper.Map<StaffMember>(await _staffMemberRepository.AddOrUpdate(staffMemberDbo));
         }
     }
 }

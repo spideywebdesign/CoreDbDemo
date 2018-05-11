@@ -90,15 +90,14 @@ namespace CoreDbDemo.Repository
             return item;
         }
 
-        public async Task<int> AddOrUpdate(RetailerDbo retailer)
+        public async Task<RetailerDbo> AddOrUpdate(RetailerDbo retailer)
         {
-            int id = default(int);
             try
             {
                 Log.Debug($"{nameof(AddOrUpdate)} called on {nameof(RetailerRepository)}");
 
                 _context.Retailers.Update(retailer);
-                id = await _context.SaveChangesAsync();
+                retailer.Id = await _context.SaveChangesAsync();
 
                 Log.Debug($"Retailer saved in method {nameof(AddOrUpdate)} called on {nameof(RetailerRepository)}");
             }
@@ -108,7 +107,7 @@ namespace CoreDbDemo.Repository
                 Log.Error($"Error in method {nameof(AddOrUpdate)} in {nameof(RetailerRepository)}");
             }
 
-            return id;
+            return retailer;
         }
     }
 }

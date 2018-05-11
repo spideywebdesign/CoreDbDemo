@@ -8,6 +8,6 @@ namespace CoreDbDemo.Strategy.Interfaces
     {
         Task<ExternalSystem> Get(int id);
         Task<IEnumerable<ExternalSystem>> GetAll();
-        Task<int> AddOrUpdate(ExternalSystem externalSystem);
+        Task<ExternalSystem> AddOrUpdate(ExternalSystem externalSystem);
     }
 }

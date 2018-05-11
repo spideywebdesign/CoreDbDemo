@@ -8,6 +8,6 @@ namespace CoreDbDemo.Repository.Interfaces
     {
         Task<ExternalSystemDbo> Get(int id);
         Task<IEnumerable<ExternalSystemDbo>> GetAll();
-        Task<int> AddOrUpdate(ExternalSystemDbo externalSystemDbo);
+        Task<ExternalSystemDbo> AddOrUpdate(ExternalSystemDbo externalSystemDbo);
     }
 }

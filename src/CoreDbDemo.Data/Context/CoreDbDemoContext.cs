@@ -15,7 +15,9 @@ namespace CoreDbDemo.Data.Context
         public DbSet<StaffMemberDbo> StaffMembers { get; set; }
         public DbSet<RetailerDbo> Retailers { get; set; }
         public DbSet<RequestDbo> Requests { get; set; }
-        public DbSet<Model.Entity.ExternalSystemDbo> ExternalSystems { get; set; }
+        public DbSet<ExternalSystemDbo> ExternalSystems { get; set; }
+        public DbSet<AreaManagerDbo> AreaManagers { get; set; }
+        public DbSet<BrandDbo> Brands { get; set; }
         public DbSet<ArchivedStaffmemberDbo> ArchivedStaffMembers { get; set; }
 
         public CoreDbDemoContext(DbContextOptions<CoreDbDemoContext> options) : base(options)

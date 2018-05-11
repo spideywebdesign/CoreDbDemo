@@ -2,7 +2,7 @@
 
 namespace CoreDbDemo.Data.EntityConfiguration
 {
-    public class ExternalSystemConfiguration
+    public class BrandConfiguration
     {
         public static void Configure(ModelBuilder modelBuilder)
         {
@@ -11,14 +11,11 @@ namespace CoreDbDemo.Data.EntityConfiguration
 
             // ENSURE THAT this configuration is registered in CoreDbDemo.Data.Context/CoreDbDemoContext/OnModelCreating
 
-            modelBuilder.Entity<Model.Entity.ExternalSystemDbo>(x =>
+            modelBuilder.Entity<Model.Entity.BrandDbo>(x =>
             {
                 // Relationships
 
                 x.HasKey(y => y.Id);
-
-                x.HasMany(y => y.Requests)
-                    .WithOne(y => y.ExternalSystem);
 
 
                 // Base Entity Common Properties

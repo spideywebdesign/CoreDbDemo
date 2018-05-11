@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CoreDbDemo.Model.Domain;
-using CoreDbDemo.Model.Entity;
 using CoreDbDemo.Repository.Interfaces;
 using CoreDbDemo.Strategy.Interfaces;
 using System.Collections.Generic;
@@ -37,10 +36,12 @@ namespace CoreDbDemo.Strategy
             return _mapper.Map<IEnumerable<Request>>(requestDbos);
         }
 
-        public async Task<int> AddOrUpdate(Request request)
+        public async Task<Request> AddOrUpdate(Request request)
         {
-            var requestId = await _requestRepository.AddOrUpdate(_mapper.Map<RequestDbo>(request));
-            return requestId;
+            var requestDbo = await _requestRepository.Get(request.Id);
+            requestDbo = _mapper.Map(request, requestDbo);
+
+            return _mapper.Map<Request>(await _requestRepository.AddOrUpdate(requestDbo));
         }
     }
 }

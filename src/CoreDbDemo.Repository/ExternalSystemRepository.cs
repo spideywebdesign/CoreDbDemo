@@ -60,25 +60,24 @@ namespace CoreDbDemo.Repository
             return items;
         }
 
-        public async Task<int> Save(ExternalSystemDbo request)
+        public async Task<ExternalSystemDbo> AddOrUpdate(ExternalSystemDbo externalSystem)
         {
-            int id = default(int);
             try
             {
-                Log.Debug($"{nameof(Save)} called on {nameof(ExternalSystemRepository)}");
+                Log.Debug($"{nameof(AddOrUpdate)} called on {nameof(ExternalSystemRepository)}");
 
-                _context.ExternalSystems.Update(request);
-                id = await _context.SaveChangesAsync();
+                _context.ExternalSystems.Update(externalSystem);
+                externalSystem.Id = await _context.SaveChangesAsync();
 
-                Log.Debug($"ExternalSystem saved in method {nameof(Save)} called on {nameof(ExternalSystemRepository)}");
+                Log.Debug($"ExternalSystem saved in method {nameof(AddOrUpdate)} called on {nameof(ExternalSystemRepository)}");
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                Log.Error($"Error in method {nameof(Save)} in {nameof(ExternalSystemRepository)}");
+                Log.Error($"Error in method {nameof(AddOrUpdate)} in {nameof(ExternalSystemRepository)}");
             }
 
-            return id;
+            return externalSystem;
         }
     }
 }

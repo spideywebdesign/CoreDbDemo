@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace CoreDbDemo.Model.Domain
 {
@@ -20,5 +18,9 @@ namespace CoreDbDemo.Model.Domain
         public string County { get; set; }
         [Required(ErrorMessage = "Postcode is required.")]
         public string Postcode { get; set; }
+
+        public AreaManager AreaManager { get; set; }
+        public Brand Brand { get; set; }
+        public IEnumerable<StaffMember> StaffMembers { get; set; }
     }
 }

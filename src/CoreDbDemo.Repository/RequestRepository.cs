@@ -90,15 +90,14 @@ namespace CoreDbDemo.Repository
             return items;
         }
 
-        public async Task<int> AddOrUpdate(RequestDbo request)
+        public async Task<RequestDbo> AddOrUpdate(RequestDbo request)
         {
-            int id = default(int);
             try
             {
                 Log.Debug($"{nameof(AddOrUpdate)} called on {nameof(RequestRepository)}");
 
                 _context.Requests.Update(request);
-                id = await _context.SaveChangesAsync();
+                request.Id = await _context.SaveChangesAsync();
 
                 Log.Debug($"Request saved in method {nameof(AddOrUpdate)} called on {nameof(RequestRepository)}");
             }
@@ -108,7 +107,7 @@ namespace CoreDbDemo.Repository
                 Log.Error($"Error in method {nameof(AddOrUpdate)} in {nameof(RequestRepository)}");
             }
 
-            return id;
+            return request;
         }
     }
 }

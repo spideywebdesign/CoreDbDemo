@@ -10,6 +10,6 @@ namespace CoreDbDemo.Strategy.Interfaces
         Task<IEnumerable<StaffMember>> GetAll();
         Task<IEnumerable<StaffMember>> GetByRetailer(Retailer retailer);
         Task<IEnumerable<StaffMember>> GetByRetailer(int id);
-        Task<int> AddOrUpdate(StaffMember staffMember);
+        Task<StaffMember> AddOrUpdate(StaffMember staffMember);
     }
 }

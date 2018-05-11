@@ -2,7 +2,7 @@
 
 namespace CoreDbDemo.Data.EntityConfiguration
 {
-    public class ExternalSystemConfiguration
+    public class AreaManagerConfiguration
     {
         public static void Configure(ModelBuilder modelBuilder)
         {
@@ -11,14 +11,17 @@ namespace CoreDbDemo.Data.EntityConfiguration
 
             // ENSURE THAT this configuration is registered in CoreDbDemo.Data.Context/CoreDbDemoContext/OnModelCreating
 
-            modelBuilder.Entity<Model.Entity.ExternalSystemDbo>(x =>
+            modelBuilder.Entity<Model.Entity.AreaManagerDbo>(x =>
             {
                 // Relationships
 
                 x.HasKey(y => y.Id);
 
-                x.HasMany(y => y.Requests)
-                    .WithOne(y => y.ExternalSystem);
+                x.HasMany(y => y.Retailers)
+                    .WithOne(y => y.AreaManager)
+                    // if an area manager is deleted, then dependant retailers can't exist without a parent area manager.
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired(); ;
 
 
                 // Base Entity Common Properties

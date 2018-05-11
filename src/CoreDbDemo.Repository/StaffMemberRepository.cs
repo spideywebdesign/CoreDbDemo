@@ -76,7 +76,7 @@ namespace CoreDbDemo.Repository
 
                 var retailer = await _context.Retailers.Include(x => x.StaffMembers).SingleOrDefaultAsync(x => x.Id == id);//.Result.Retailer;//
                 if (retailer == null) return null;
-                
+
                 items = retailer.StaffMembers;
 
                 Log.Debug($"{(items == null ? "0" : items.Count().ToString())} item(s) was found in {nameof(StaffMemberRepository)} for id: \"{id}\"");
@@ -90,15 +90,15 @@ namespace CoreDbDemo.Repository
             return items;
         }
 
-        public async Task<int> AddOrUpdate(StaffMemberDbo staffMember)
+        public async Task<StaffMemberDbo> AddOrUpdate(StaffMemberDbo staffMember)
         {
-            int id = default(int);
+
             try
             {
                 Log.Debug($"{nameof(AddOrUpdate)} called on {nameof(StaffMemberRepository)}");
 
                 _context.StaffMembers.Update(staffMember);
-                id = await _context.SaveChangesAsync();
+                staffMember.Id = await _context.SaveChangesAsync();
 
                 Log.Debug($"StaffMember saved in method {nameof(AddOrUpdate)} called on {nameof(StaffMemberRepository)}");
             }
@@ -108,7 +108,7 @@ namespace CoreDbDemo.Repository
                 Log.Error($"Error in method {nameof(AddOrUpdate)} in {nameof(StaffMemberRepository)}");
             }
 
-            return id;
+            return staffMember;
         }
     }
 }

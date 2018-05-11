@@ -1,12 +1,9 @@
-﻿using CoreDbDemo.Model.Domain;
+﻿using AutoMapper;
+using CoreDbDemo.Model.Domain;
 using CoreDbDemo.Repository.Interfaces;
 using CoreDbDemo.Strategy.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
-using CoreDbDemo.Model.Entity;
 
 namespace CoreDbDemo.Strategy
 {
@@ -41,8 +38,10 @@ namespace CoreDbDemo.Strategy
         }
         public async Task<Retailer> AddOrUpdate(Retailer retailer)
         {
-            var retailerDbo = await _retailerRepository.AddOrUpdate(_mapper.Map<RetailerDbo>(retailer));
-            return _mapper.Map<Retailer>(retailerDbo);
+            var retailerDbo = await _retailerRepository.Get(retailer.Id);
+            retailerDbo = _mapper.Map(retailer, retailerDbo);
+
+            return _mapper.Map<Retailer>(await _retailerRepository.AddOrUpdate(retailerDbo));
         }
     }
 }

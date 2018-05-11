@@ -10,6 +10,6 @@ namespace CoreDbDemo.Repository.Interfaces
         Task<IEnumerable<RetailerDbo>> GetAll();
         Task<RetailerDbo> GetByStaffMember(StaffMemberDbo staffMember);
         Task<RetailerDbo> GetByStaffMember(int id);
-        Task<int> AddOrUpdate(RetailerDbo retailer);
+        Task<RetailerDbo> AddOrUpdate(RetailerDbo retailer);
     }
 }
