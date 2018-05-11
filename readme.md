@@ -12,4 +12,4 @@ https://github.com/SiliconOrchid/RetrospectiveDemo2/
 
 https://github.com/GaProgMan/dwCheckApi
 
-Thank you for your unwitting assistamce!
+Thank you for your unwitting assistance!
