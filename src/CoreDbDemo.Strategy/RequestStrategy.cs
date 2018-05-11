@@ -37,9 +37,9 @@ namespace CoreDbDemo.Strategy
             return _mapper.Map<IEnumerable<Request>>(requestDbos);
         }
 
-        public async Task<int> Save(Request request)
+        public async Task<int> AddOrUpdate(Request request)
         {
-            var requestId = await _requestRepository.Save(_mapper.Map<RequestDbo>(request));
+            var requestId = await _requestRepository.AddOrUpdate(_mapper.Map<RequestDbo>(request));
             return requestId;
         }
     }

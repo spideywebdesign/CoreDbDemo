@@ -4,57 +4,56 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace CoreDbDemo.API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Retailer")]
-    public class RetailerController : Controller
+    [Route("api/StaffMember")]
+    public class StaffMemberController : Controller
     {
-        private readonly IRetailerStrategy _retailerStrategy;
+        private readonly IStaffMemberStrategy _staffMemberStrategy;
 
-        public RetailerController(IRetailerStrategy retailerStrategy)
+        public StaffMemberController(IStaffMemberStrategy staffMemberStrategy)
         {
-            _retailerStrategy = retailerStrategy;
+            _staffMemberStrategy = staffMemberStrategy;
         }
 
         [HttpGet("GetAll")]
         public async Task<ActionResult> GetAll()
         {
-            var result = await _retailerStrategy.GetAll();
+            var result = await _staffMemberStrategy.GetAll();
+
             return Ok(result);
         }
 
         [HttpGet("Get/{id}")]
         public async Task<ActionResult> Get(int id)
         {
-            var result = await _retailerStrategy.Get(id);
-            return Ok(result);
-        }
-
-        [HttpGet("GetByStaffMember/{id}")]
-        public async Task<ActionResult> GetByStaffMember(int id)
-        {
-            var result = await _retailerStrategy.GetByStaffMember(id);
+            var result = await _staffMemberStrategy.Get(id);
 
             return Ok(result);
         }
 
-        [HttpPost]
-        public void Post([FromBody]Retailer retailer)
+        [HttpGet("GetByRetailer/{id}")]
+        public async Task<ActionResult> GetByRetailer(int id)
         {
+            var result = await _staffMemberStrategy.GetByRetailer(id);
+
+            return Ok(result);
         }
 
         [HttpPut("AddOrUpdate")]
-        public async Task<ActionResult> AddOrUpdate([FromBody]Retailer retailer)
+        public async Task<ActionResult> AddOrUpdate([FromBody]StaffMember staffMember)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
             try
             {
-                var result = await _retailerStrategy.AddOrUpdate(retailer);
+                var result = await _staffMemberStrategy.AddOrUpdate(staffMember);
 
                 return Ok(result);
             }
@@ -63,12 +62,6 @@ namespace CoreDbDemo.API.Controllers
                 Debug.WriteLine(e);
                 throw;
             }
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

@@ -32,9 +32,9 @@ namespace CoreDbDemo.Strategy
             return _mapper.Map<IEnumerable<ExternalSystem>>(externalSystemDbos);
         }
 
-        public async Task<int> Save(ExternalSystem externalSystem)
+        public async Task<int> AddOrUpdate(ExternalSystem externalSystem)
         {
-            var externalSystemId = await _externalSystemRepository.Save(_mapper.Map<ExternalSystemDbo>(externalSystem));
+            var externalSystemId = await _externalSystemRepository.AddOrUpdate(_mapper.Map<ExternalSystemDbo>(externalSystem));
             return externalSystemId;
         }
     }

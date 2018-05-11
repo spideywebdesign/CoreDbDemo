@@ -8,53 +8,50 @@ using System.Threading.Tasks;
 namespace CoreDbDemo.API.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Retailer")]
-    public class RetailerController : Controller
+    [Route("api/Request")]
+    public class RequestController : Controller
     {
-        private readonly IRetailerStrategy _retailerStrategy;
-
-        public RetailerController(IRetailerStrategy retailerStrategy)
+        private readonly IRequestStrategy _requestStrategy;
+        public RequestController(IRequestStrategy requestStrategy)
         {
-            _retailerStrategy = retailerStrategy;
+            _requestStrategy = requestStrategy;
         }
 
         [HttpGet("GetAll")]
         public async Task<ActionResult> GetAll()
         {
-            var result = await _retailerStrategy.GetAll();
+            var result = await _requestStrategy.GetAll();
+
             return Ok(result);
         }
 
         [HttpGet("Get/{id}")]
         public async Task<ActionResult> Get(int id)
         {
-            var result = await _retailerStrategy.Get(id);
+            var result = await _requestStrategy.Get(id);
+
             return Ok(result);
         }
 
         [HttpGet("GetByStaffMember/{id}")]
         public async Task<ActionResult> GetByStaffMember(int id)
         {
-            var result = await _retailerStrategy.GetByStaffMember(id);
+            var result = await _requestStrategy.GetByStaffMember(id);
 
             return Ok(result);
         }
 
-        [HttpPost]
-        public void Post([FromBody]Retailer retailer)
-        {
-        }
-
         [HttpPut("AddOrUpdate")]
-        public async Task<ActionResult> AddOrUpdate([FromBody]Retailer retailer)
+        public async Task<ActionResult> AddOrUpdate([FromBody] Request request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
             try
             {
-                var result = await _retailerStrategy.AddOrUpdate(retailer);
+                var result = await _requestStrategy.AddOrUpdate(request);
 
                 return Ok(result);
             }
@@ -63,12 +60,6 @@ namespace CoreDbDemo.API.Controllers
                 Debug.WriteLine(e);
                 throw;
             }
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

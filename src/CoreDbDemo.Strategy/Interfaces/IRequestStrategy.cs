@@ -14,6 +14,6 @@ namespace CoreDbDemo.Strategy.Interfaces
         Task<Request> Get(int id);
         Task<IEnumerable<Request>> GetAll();
         Task<IEnumerable<Request>> GetByStaffMember(int id);
-        Task<int> Save(Request request);
+        Task<int> AddOrUpdate(Request request);
     }
 }

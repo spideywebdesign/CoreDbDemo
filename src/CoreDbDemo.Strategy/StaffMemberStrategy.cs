@@ -37,9 +37,9 @@ namespace CoreDbDemo.Strategy
             var staffMemberDbo = await _staffMemberRepository.GetByRetailer(id);
             return _mapper.Map<IEnumerable<StaffMember>>(staffMemberDbo);
         }
-        public async Task<int> Save(StaffMember staffMember)
+        public async Task<int> AddOrUpdate(StaffMember staffMember)
         {
-            var staffMemberId = await _staffMemberRepository.Save(_mapper.Map<StaffMemberDbo>(staffMember));
+            var staffMemberId = await _staffMemberRepository.AddOrUpdate(_mapper.Map<StaffMemberDbo>(staffMember));
             return staffMemberId;
         }
     }

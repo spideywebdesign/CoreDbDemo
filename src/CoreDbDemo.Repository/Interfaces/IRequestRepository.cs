@@ -14,6 +14,6 @@ namespace CoreDbDemo.Repository.Interfaces
         Task<RequestDbo> Get(int id);
         Task<IEnumerable<RequestDbo>> GetAll();
         Task<IEnumerable<RequestDbo>> GetByStaffMember(int id);
-        Task<int> Save(RequestDbo request);
+        Task<int> AddOrUpdate(RequestDbo request);
     }
 }
