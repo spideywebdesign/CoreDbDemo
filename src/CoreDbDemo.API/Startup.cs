@@ -37,7 +37,7 @@ namespace CoreDbDemo.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
             var connection = Configuration.GetConnectionString("CoreDbDemoDB");
             services.AddDbContext<CoreDbDemoContext>(options => options.UseSqlServer(connection));
@@ -71,6 +71,11 @@ namespace CoreDbDemo.API
                 app.UseDeveloperExceptionPage();
                 app.EnsureDatabaseIsSeeded(false).GetAwaiter().GetResult();
             }
+
+            app.UseHsts();
+
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseMvc();
         }
