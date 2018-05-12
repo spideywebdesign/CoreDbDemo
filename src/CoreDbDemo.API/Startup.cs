@@ -74,7 +74,7 @@ namespace CoreDbDemo.API
             loggerFactory.AddNLog();
             loggerFactory.AddAzureWebAppDiagnostics();
 
-            //app.AddNLogWeb();
+            app.AddNLogWeb();
 
             if (env.IsDevelopment())
             {
@@ -85,7 +85,6 @@ namespace CoreDbDemo.API
             app.UseHsts();
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
             app.UseMvc();
         }
