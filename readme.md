@@ -2,7 +2,9 @@
 
 This is a simple demo app with multiple front ends. The idea is to demonstrate a basic database management system in Angular 1, AngularJs (2.x) & Aurelia.
 
-### More details to follow when there's actually something tangible to run ###
+### Projects are all running .Net Core 2.1 ###
+
+For details on how to upgrade from 2.0 to 2.1 see: https://blogs.msdn.microsoft.com/webdev/2018/05/07/asp-net-core-2-1-0-rc1-now-available/
 
 ### Credits ###
 
