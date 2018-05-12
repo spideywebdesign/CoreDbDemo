@@ -11,6 +11,8 @@ namespace CoreDbDemo.Model.Entity
         public string Town { get; set; }
         public string County { get; set; }
         public string Postcode { get; set; }
+        public int BrandId { get; set; }
+        public int AreaManagerId { get; set; }
 
         public virtual AreaManagerDbo AreaManager { get; set; }
         public virtual BrandDbo Brand { get; set; }

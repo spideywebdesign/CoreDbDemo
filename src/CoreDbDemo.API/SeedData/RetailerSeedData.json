@@ -7,6 +7,8 @@
     "Town": "My Town",
     "County": "TheShire",
     "Postcode": "AB12 3CD",
+    "AreaManagerId": 1,
+    "BrandId": 1,
     "StaffMembers": [
       {
         "Firstname": "TestName1",
@@ -88,6 +90,8 @@
     "Town": "My Town",
     "County": "TheShire",
     "Postcode": "AB12 3CD",
+    "AreaManagerId": 2,
+    "BrandId": 2,
     "StaffMembers": []
   },
   {
@@ -98,6 +102,8 @@
     "Town": "My Town",
     "County": "TheShire",
     "Postcode": "AB12 3CD",
+    "AreaManagerId": 3,
+    "BrandId": 3,
     "StaffMembers": [
       {
         "Firstname": "TestName1",
@@ -135,6 +141,8 @@
     "Town": "My Town",
     "County": "TheShire",
     "Postcode": "AB12 3CD",
+    "AreaManagerId": 1,
+    "BrandId": 2,
     "StaffMembers": [
       {
         "Firstname": "TestName1",
@@ -165,6 +173,8 @@
     "Town": "My Town",
     "County": "TheShire",
     "Postcode": "AB12 3CD",
+    "AreaManagerId": 2,
+    "BrandId": 3,
     "StaffMembers": [
       {
         "Firstname": "TestName3",
@@ -214,6 +224,8 @@
     "Town": "My Town",
     "County": "TheShire",
     "Postcode": "AB12 3CD",
+    "AreaManagerId": 3,
+    "BrandId": 1,
     "StaffMembers": [
       {
         "Firstname": "TestName4",
@@ -249,6 +261,8 @@
     "Address3": null,
     "Town": "My Town",
     "County": "TheShire",
-    "Postcode": "AB12 3CD"
+    "Postcode": "AB12 3CD",
+    "AreaManagerId": 1,
+    "BrandId": 3
   }
 ]

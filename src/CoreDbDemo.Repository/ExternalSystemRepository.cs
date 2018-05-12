@@ -1,6 +1,7 @@
 ﻿using CoreDbDemo.Common.Logging;
 using CoreDbDemo.Data.Context;
 using CoreDbDemo.Model.Entity;
+using CoreDbDemo.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CoreDbDemo.Repository
 {
-    public class ExternalSystemRepository
+    public class ExternalSystemRepository : IExternalSystemRepository
     {
         private readonly CoreDbDemoContext _context;
 

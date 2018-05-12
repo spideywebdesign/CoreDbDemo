@@ -52,9 +52,19 @@ namespace CoreDbDemo.API
 
             // Add our strategies
             services.AddScoped<IRetailerStrategy, RetailerStrategy>();
+            services.AddScoped<IStaffMemberStrategy, StaffMemberStrategy>();
+            services.AddScoped<IExternalSystemStrategy, ExternalSystemStrategy>();
+            services.AddScoped<IRequestStrategy, RequestStrategy>();
+            services.AddScoped<IBrandStrategy, BrandStrategy>();
+            services.AddScoped<IAreaManagerStrategy, AreaManagerStrategy>();
 
             // Add our repositories
             services.AddScoped<IRetailerRepository, RetailerRepository>();
+            services.AddScoped<IStaffMemberRepository, StaffMemberRepository>();
+            services.AddScoped<IExternalSystemRepository, ExternalSystemRepository>();
+            services.AddScoped<IRequestRepository, RequestRepository>();
+            services.AddScoped<IBrandRepository, BrandRepository>();
+            services.AddScoped<IAreaManagerRepository, AreaManagerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

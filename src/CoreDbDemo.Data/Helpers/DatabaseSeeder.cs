@@ -65,5 +65,57 @@ namespace CoreDbDemo.Data.Helpers
             _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.[ExternalSystems] OFF");
             return resultsCount;
         }
+
+        public async Task<int> SeedAreaManagerEntitiesFromJson(string filePath)
+        {
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                throw new ArgumentException($"Value of {filePath} must be supplied to {nameof(SeedAreaManagerEntitiesFromJson)}");
+            }
+
+            if (!File.Exists(filePath))
+            {
+                throw new ArgumentException($"The file '{filePath}' does not exist");
+            }
+
+            var dataSet = File.ReadAllText(filePath);
+            var seedData = JsonConvert.DeserializeObject<List<AreaManagerDbo>>(dataSet);
+
+            _context.AreaManagers.AddRange(seedData);
+
+            // As we are seeding some reference data, lets turn on Identity insert, else we would have to continually update the seed data referencing this table.
+            _context.Database.OpenConnection();
+            _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.[AreaManagers] ON");
+
+            var resultsCount = await _context.SaveChangesAsync();
+            _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.[AreaManagers] OFF");
+            return resultsCount;
+        }
+
+        public async Task<int> SeedBrandEntitiesFromJson(string filePath)
+        {
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                throw new ArgumentException($"Value of {filePath} must be supplied to {nameof(SeedBrandEntitiesFromJson)}");
+            }
+
+            if (!File.Exists(filePath))
+            {
+                throw new ArgumentException($"The file '{filePath}' does not exist");
+            }
+
+            var dataSet = File.ReadAllText(filePath);
+            var seedData = JsonConvert.DeserializeObject<List<BrandDbo>>(dataSet);
+
+            _context.Brands.AddRange(seedData);
+
+            // As we are seeding some reference data, lets turn on Identity insert, else we would have to continually update the seed data referencing this table.
+            _context.Database.OpenConnection();
+            _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.[Brands] ON");
+
+            var resultsCount = await _context.SaveChangesAsync();
+            _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT dbo.[Brands] OFF");
+            return resultsCount;
+        }
     }
 }

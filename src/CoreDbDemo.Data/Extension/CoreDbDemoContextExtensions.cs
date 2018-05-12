@@ -15,6 +15,8 @@ namespace CoreDbDemo.Data.Extension
         {
             var systemCount = default(int);
             var retailerCount = default(int);
+            var brandCount = default(int);
+            var areaManagerCount = default(int);
 
             // Because each of the following seed method needs to do a save
             // (the data they're importing is relational), we need to call
@@ -27,13 +29,23 @@ namespace CoreDbDemo.Data.Extension
                 var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "SystemSeedData.json");
                 systemCount = await dbSeeder.SeedSystemEntitiesFromJson(pathToSeedData);
             }
+            if (!context.AreaManagers.Any())
+            {
+                var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "AreaManagerSeedData.json");
+                areaManagerCount = await dbSeeder.SeedAreaManagerEntitiesFromJson(pathToSeedData);
+            }
+            if (!context.Brands.Any())
+            {
+                var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "BrandSeedData.json");
+                brandCount = await dbSeeder.SeedBrandEntitiesFromJson(pathToSeedData);
+            }
             if (!context.Retailers.Any())
             {
                 var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "RetailerSeedData.json");
                 retailerCount = await dbSeeder.SeedRetailerEntitiesFromJson(pathToSeedData);
             }
 
-            return retailerCount + systemCount;
+            return brandCount = areaManagerCount + retailerCount + systemCount;
         }
     }
 }
