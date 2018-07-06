@@ -37,7 +37,12 @@ namespace CoreDbDemo.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+            services.AddMvc()
+                .AddJsonOptions(options =>
+                {
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Error;
+                })
+                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
             var connection = Configuration.GetConnectionString("CoreDbDemoDB");
             services.AddDbContext<CoreDbDemoContext>(options => options.UseSqlServer(connection));
@@ -73,8 +78,8 @@ namespace CoreDbDemo.API
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddNLog();
             loggerFactory.AddAzureWebAppDiagnostics();
-
-            app.AddNLogWeb();
+            // 4/7/2018: Nlog not currently working on core 2.1
+            //app.AddNLogWeb();
 
             if (env.IsDevelopment())
             {
