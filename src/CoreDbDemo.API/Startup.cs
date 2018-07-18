@@ -21,6 +21,8 @@ using CoreDbDemo.Repository;
 using NLog.Extensions.Logging;
 using NLog.Web;
 
+using Umbraco.Headless.Client;
+
 namespace CoreDbDemo.API
 {
     public class Startup
@@ -62,6 +64,7 @@ namespace CoreDbDemo.API
             services.AddScoped<IRequestStrategy, RequestStrategy>();
             services.AddScoped<IBrandStrategy, BrandStrategy>();
             services.AddScoped<IAreaManagerStrategy, AreaManagerStrategy>();
+            services.AddScoped<ICMSStrategy, CMSStrategy>();
 
             // Add our repositories
             services.AddScoped<IRetailerRepository, RetailerRepository>();
@@ -70,6 +73,8 @@ namespace CoreDbDemo.API
             services.AddScoped<IRequestRepository, RequestRepository>();
             services.AddScoped<IBrandRepository, BrandRepository>();
             services.AddScoped<IAreaManagerRepository, AreaManagerRepository>();
+
+            services.AddUmbracoHeadlessClient(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

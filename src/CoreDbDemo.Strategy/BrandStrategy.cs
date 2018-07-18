@@ -4,6 +4,7 @@ using CoreDbDemo.Repository.Interfaces;
 using CoreDbDemo.Strategy.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CoreDbDemo.Model.Entity;
 
 namespace CoreDbDemo.Strategy
 {
@@ -32,7 +33,7 @@ namespace CoreDbDemo.Strategy
 
         public async Task<Brand> AddOrUpdate(Brand brand)
         {
-            var brandDbo = await _brandRepository.Get(brand.Id);
+            var brandDbo = new BrandDbo();//await _brandRepository.Get(brand.Id);
             brandDbo = _mapper.Map(brand, brandDbo);
 
             return _mapper.Map<Brand>(await _brandRepository.AddOrUpdate(brandDbo));

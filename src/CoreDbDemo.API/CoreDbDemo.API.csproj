@@ -6,11 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="SeedData\RetailerSeedData.json" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Content Remove="SeedData\RetailerSeedData.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +21,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.5.4" />
+    <PackageReference Include="UmbracoCms.Headless.Client" Version="0.9.4-CI-20180717-03" />
   </ItemGroup>
 
   <ItemGroup>

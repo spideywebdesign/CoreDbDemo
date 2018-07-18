@@ -11,7 +11,7 @@ namespace CoreDbDemo.Data.Extension
     /// </summary>
     public static class CoreDbDemoContextExtensions
     {
-        public async static Task<int> EnsureSeedData(this CoreDbDemoContext context)
+        public static async Task<int> EnsureSeedData(this CoreDbDemoContext context)
         {
             var systemCount = default(int);
             var retailerCount = default(int);
@@ -45,7 +45,7 @@ namespace CoreDbDemo.Data.Extension
                 retailerCount = await dbSeeder.SeedRetailerEntitiesFromJson(pathToSeedData);
             }
 
-            return brandCount = areaManagerCount + retailerCount + systemCount;
+            return brandCount + areaManagerCount + retailerCount + systemCount;
         }
     }
 }
